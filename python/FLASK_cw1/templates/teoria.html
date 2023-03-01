@@ -1,0 +1,139 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <title>Some theory:</title>
+    <h1 align="center">Theory</h1>
+    <script>
+    function goBack() {
+      window.history.back()
+    }
+    </script>
+</head>
+<body>
+<div style=" width: 1000px; margin-left: auto; margin-right: auto; background-color: #e8e8e8;">
+    <br><h1>Level sensor</h1><br>
+    <p>
+        The level sensor is intended for measurement liquids level and fluidized substances such as
+        granular materials or powders. The sensor should be immersed in substance to measure the level
+        of substance inside container. But there are also level sensors that can work for example to check level of
+        river.There are two ways to define the level of liquid. There could be continuously checked value and determine
+        the exact amount of the substance in specified range. Another way is point level measurement that indicates
+        whether the substance is above or below the sensing point.
+    </p>
+    <p><b>Point level detection sensors:</b></p>
+    <ul>
+    <li>Magnetic and mechanical float,</li>
+    <li>Pneumatic,</li>
+    <li>Conductive,</li>
+    <li>Optical interface,</li>
+    <li>Microwave,</li>
+    </ul>
+    <p><b>Continuous level measurement sensors:</b></p>
+    <ul>
+    <li>Magnetostrictive,</li>
+    <li>Resistive chain,</li>
+    <li>Magnetoresistive,</li>
+    <li>Hydrostatic pressure,</li>
+    <li>Air bubbler,</li>
+    <li>Gamma ray,</li>
+    </ul>
+    <p><b>Among level sensors there are also ones that operates
+        on both continuous monitoring and point level detection:</b></p>
+    <ul>
+        <li>Ultrasonic,</li>
+        <li>Capacitance,</li>
+        <li>Optical interference,</li>
+        <li>Air bubbler,</li>
+        <li>Microwave</li>
+    </ul>
+    <p>For selection of level measurement method could affect multiple variables, such as: phase, temperature,
+        pressure, vacuum, chemistry, dielectric constant of medium, density of medium, agitation, noise, vibration,
+        mechanical shock, tank or bin size and shape. </p>
+    <p><b>To use level sensor there is also different criteria to consider:</b></p>
+    <ul>
+        <li>Price,</li>
+        <li>Accuracy,</li>
+        <li>Appearance,</li>
+        <li>Response rate,</li>
+        <li>Ease of calibration or programing,</li>
+        <li>Physical size and mounting of device,</li>
+        <li>Monitoring or control of continuous or discrete (point) levels.</li>
+    </ul>
+    <p><b>Application:</b></p>
+    <ul>
+        <li>Liquids,</li>
+        <li>Powered and granular solids,</li>
+        <li>Liquid metals at very high temperature,</li>
+        <li>Corrosive materials,</li>
+        <li>Very high pressure industrial process.</li>
+    </ul>
+    <p><b>Capacitance level sensor</b></p>
+    <p>The principle of level sensor is to convert a change in position or properties of the dielectric material
+        into an electric signal. Those sensors are operated by varying of capacitance parameters, which are: distance
+        between electrodes, area of capacitive plates and dielectric constant:</p>
+    <div><img src="{{url_for('static', filename='wzor1.jpg')}}" /><br></div>
+    <p>Capacitive level sensor can be operated in two ways:</p>
+    <ul>
+        <li>by 2 electrodes forming a capacitor placed in container in a form of metal plates with insulating
+            (dielectric) material between them. This type of electrode is used for non-metallic tanks,</li>
+        <img src="{{url_for('static', filename='one.jpg')}}" /><br>
+        <li>by one electrode when the metal tank wall acts as other electrode.</li>
+        <img src="{{url_for('static', filename='two.jpg')}}" /><br>
+    </ul>
+    <p>The shape of electrode can be different. The substance plays the role of dielectric and fill the gap between
+        the electrodes. The changes of substance level affect the changes of the capacitance. To measure the capacitance
+        variation, electric energy that flows into and out of the electrodes is measured as voltage changes. Empty tank
+        will have lover capacitance than filled up.</p>
+    <p><b>Measurement</b></p>
+    <p>When the substance is introduced between electrodes of the capacitor the capacitance changes progressively and
+        liquid level can be determined. To measure the variation in capacitance electric energy flowing into and out
+        of electrodes is measured as the circuit potential is varied. The regular flow of energy is established
+        by connecting electrodes to alternating current measurement circuit. The more energy the higher the capacitance
+        and more dielectric between electrodes. <br>
+        To the capacitor circle is applied a radio frequency to the capacitance circuit and this method is called as RF
+        level sense. When RF signal (low MHz) is applied, it causes a low current flow between probe and tank wall
+        through dielectric material. The drop of substance level cause drop of the capacitance and minute drop
+        of current flow.  The current difference is detected by the capacitor switch and translated into a change
+        in the relay state of the level switch. In the case of continuous level detectors (vertical probes), the output
+        is not a relay state, but a scaled analog signal.</p>
+    <p><b>There are three categories of level measurement:</b></p>
+    <ol>
+        <li><i>Measurement of non-conductive material– </i> the probe has no insulator because of high liquid resistance make
+            it dielectric,</li>
+        <li><i>Measurement of conductive material– </i>electrodes are insulated with thin coating of glass or plastic to avoid
+            short circuit, </li>
+        <li><i>Non-contact measurement-</i> fixed area of plates but varied distance between them, this measurement does not
+            produce a linear output and is used when the level varies by several inches.</li>
+    </ol>
+    <p><b>Advantages of capacitance level sensor:</b></p>
+    <ul>
+        <li>Simple installation,</li>
+        <li>Low cost,</li>
+        <li>Good resolution (as low as 0.003 mm) and frequency response,</li>
+        <li>Up to 100m measurement,</li>
+        <li>Have no moving parts,</li>
+        <li>Can be made for higher temperature and pressure applications,</li>
+    </ul>
+    <p><b>Disadvantages of capacitance level sensor:</b></p>
+    <ul>
+        <li>Become inaccurate if the measured substance is prone to contamination by agents that change the dielectric constant,</li>
+        <li>Even acids and caustics that do not appear to coat the sensing element are so conductive that the thin film they leave can cause serious errors in measurement,</li>
+        <li>The measurement of capacitance is hard compare to measurement of resistance,</li>
+    </ul>
+    <p>Bibliografia:</p>
+    <ol>
+        <li><a href="https://en.wikipedia.org/wiki/Level_sensor">https://en.wikipedia.org/wiki/Level_sensor</a></li>
+        <li><a href="https://journals.sagepub.com/doi/full/10.1177/0020294014546943">https://journals.sagepub.com/doi/full/10.1177/0020294014546943</a></li>
+        <li><a href="https://www.omega.de/literature/transactions/volume4/t9904-13-rf-cap.html ">https://www.omega.de/literature/transactions/volume4/t9904-13-rf-cap.html </a></li>
+        <li><a href="https://scialert.net/fulltext/?doi=jas.2008.1699.1705">https://scialert.net/fulltext/?doi=jas.2008.1699.1705</a></li>
+        <li><a href="https://www.sciencedirect.com/topics/engineering/level-sensor ">https://www.sciencedirect.com/topics/engineering/level-sensor </a></li>
+        <li><a href="https://www.rfwireless-world.com/Terminology/Advantages-and-disadvantages-of-Capacitive-Sensor.html">https://www.rfwireless-world.com/Terminology/Advantages-and-disadvantages-of-Capacitive-Sensor.html </a></li>
+        <li><a href="https://scialert.net/fulltext/?doi=jas.2008.1699.1705">https://scialert.net/fulltext/?doi=jas.2008.1699.1705</a></li>
+    </ol>
+</div>
+
+<div class="Back">
+    <button onclick="goBack()">Go Back</button>
+</div>
+</body>
+</html>

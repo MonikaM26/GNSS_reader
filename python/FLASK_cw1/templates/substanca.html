@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet"  href="static/new.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-4ZPLezkTZTsojWFhpdFembdzFudphhoOzIunR1wH6g1WQDzCAiPvDyitaK67mp0+" crossorigin="anonymous">
+    <h1> Simulator of cylindrical capacitive level sensor</h1>
+</head>
+<body>
+<div align="center">
+    <p>Set substance and submit value:</p>
+     <form class="pure-form" method="POST" action = "#">
+        Select substance:
+          <select name="val">
+              <option value="0.0">Select value</option>
+              <option value="80.0">water</option>
+              <option value="47.0">glycerin</option>
+              <option value="3.0">salt</option>
+              <option value="84.0">h2so4</option>
+              <option value="17.0">ammonia</option> " . $options . "
+
+          </select><br>
+        <br>
+        <br>
+        <button type="submit" class="pure-button pure-button-primary" value="Submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

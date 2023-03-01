@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <title>Lab instruction:</title>
+    <h1 align="center">Lab instruction</h1>
+    <script>
+    function goBack() {
+      window.history.back()
+    }
+    </script>
+</head>
+<body>
+<div style=" width: 1000px; margin-left: auto; margin-right: auto; background-color: #e8e8e8;">
+    <p><b>The cylindrical capacitive level sensor introduction</b></p>
+    <p>Cylindrical capacitance level senor is designed with two the cylindrical shaped electrodes (tubes).
+        The examined capacitance is measured between these electrodes. The picture below shows the sensor:</p>
+    <div align="center">
+        <img src="{{url_for('static', filename='three.jpg')}}" /><br></div>
+    <p>Because the capacitor shape is cylindrical the capacitance form will change to:<br>
+        <div><img src="{{url_for('static', filename='wzor2.jpg')}}" /><br></div>
+      <p>  Where:<br>
+        C_out – output measured capacitance [nF]<br>
+        eps_0 – electric permittivity = 8.854 *10^(-12)<br>
+        eps_1 – substance relative permittivity <br>
+        eps_2 – air relative permittivity=1 <br>
+        h1- height of substance [cm]<br>
+        h2- height of left space (air) [cm]<br>
+        r1- radius of inner electrode [cm]<br>
+        r2- radius of outer electrode [cm]<br>
+        With the change of substance temperature, the substance relative electric permittivity also changes.<br>
+        In the table below are shown the values of these parameters.</p>
+    <table  align="center" border="1" bgcolor="#fffff"> <!--tablica...-->
+        <tr><th rowspan ="2">Substance</th><th colspan="3">Relative permittivity</th></tr>
+        <tr><td>0 Celsius degree</td><td>20 Celsius degree</td><td>25 Celsius degree</td></tr>
+        <tr><td>water</td><td>88.0</td><td>80.0</td><td>78.0</td></tr>
+        <tr><td>glycerin</td><td>41.2</td><td>47.0</td><td>42.5</td></tr>
+    </table>
+    <p><b>Instruction to the laboratory</b></p>
+    <ol>
+        <li>Study the theory</li>
+        <li>Select the height of tank, substance type and size of radius and submit the values.</li>
+        <li>First is characteristics of C =f(substance) for different substance level.</li>
+        <ol type="a">
+            <li>Select the percentage representation of substance that will fill the container. </li>
+            <li>Use cylindrical capacitance form to calculate the output capacitance and fill the gap with
+                this value (capacitance should be in [nF] with accuracy to 2 decimal numbers.</li>
+            <li>If the value is wrong, try again. The value is correct when the tank fill with the substance.
+                Add other points to the characteristic. </li>
+            <li>To see the graph, click “See graph” button or change the substance with button “Change the
+                substance”. </li>
+        </ol>
+        <li>Go to characteristic C = f(r1) for different substance level, by clicking the link on the top of
+            the website.</li>
+        <ol type="a">
+            <li>First select the radius size and submit.</li>
+            <li>Next do the same step from 3. a) to d) and see the results on graph.</li>
+        </ol>
+        <li>Go to the characteristic C =f(T) for different substances, by clicking the link on the top of the website.</li>
+        <ol type="a">
+            <li>First choose the substance and submit.</li>
+            <li>Select the temperature.</li>
+            <li>Find in table the value of relative dielectric permittivity of this substance for selected
+                temperature and repeat the steps from 3. b) to d).</li>
+        </ol>
+    </ol>
+</div>
+    <div class="Back">
+    <button onclick="goBack()">Go Back</button>
+    </div>
+
+</body>
+</html>

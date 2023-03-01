@@ -1,0 +1,4 @@
+pygal
+numpy
+flask
+markupsafe
