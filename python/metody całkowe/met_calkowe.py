@@ -1,6 +1,7 @@
 """ Actual velocity and displacement calculation based on
     - Runge Kutta 4th order integration method
-        based on: https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods """
+        based on: https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods 
+        ZUPT -additional parameter (Zero Velocity Update)"""
 
 
 class PosVelCalculate:
