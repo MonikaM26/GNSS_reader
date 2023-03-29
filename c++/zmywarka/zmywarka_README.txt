@@ -1,5 +1,7 @@
-﻿Zmywarka - zagadnienia.
-1. Zmywarka posiada zestaw programów np:
+﻿Projekt zmywarki wykonany w ramach studiów w języku C++. Polegał na napisaniu programu do obsługi zmywarki.
+
+Wymagania projektowe:
+Zmywarka posiada zestaw programów np:
 	- mycie krótkie
 	- mycie standardowe
 	- mycie dodatkowe
