@@ -1,0 +1,11 @@
+numpy
+pyqtgraph
+PyQt5
+PySimpleGUI
+threading
+time
+multiprocessing
+os
+serial
+pyubx2
+pyyaml

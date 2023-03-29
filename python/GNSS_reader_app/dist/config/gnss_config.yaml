@@ -1,0 +1,18 @@
+base:
+  send: 
+    device : "base"
+    serial_port : "COM3"
+    baudrate : 9600
+    timeout : 3
+    daemon : True
+
+  test:
+    device : "base"
+    serial_port : "COM3"
+    baudrate : 9600
+    timeout : 3
+    daemon : True
+
+
+  
+
