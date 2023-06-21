@@ -22,7 +22,7 @@ app = create_app()
 
 @app.route('/', methods=['GET', 'POST'])
 def root():
-    # session.clear()
+    session.clear()
     start = ''
     stop = ''
 
@@ -103,7 +103,7 @@ def download():
         date = ''
 
         if request.method == 'POST' and request.form.get('button2') == 'True':
-            all_values, units = explore_data(units, data_json, all_values)
+            all_values, units, date = explore_data(units, data_json, all_values)
 
             graph = draw_graph(all_values, date, units)
 
@@ -161,7 +161,6 @@ def draw_graph(values, date, units):
     return graph
 
 
-
 def explore_data(units, data_json, all_values):
     selects = ['selection', 'selection1', 'selection2']
 
@@ -173,7 +172,7 @@ def explore_data(units, data_json, all_values):
             date, values = get_currency_data(data_json, unit)
 
             all_values[i] = values
-    return all_values, units
+    return all_values, units, date
 
 
 if __name__ == '__main__':

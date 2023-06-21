@@ -55,10 +55,16 @@ def test_root_date(app, client):
     # print(response.get_data('button'))
     assert b'Bledny przedzial czasowy!' in response.data
 
-    response = client.post("/", data={"button1": "True"}
-                           )
-    values = client.get("/download")
-    assert b'Brak danych w dniu 2023-03-01' in values.data
+
+def test_brak_danych(client):
+    out = client.post("/", data={"button": "True",
+                                 "start_date": '2023-05-06',
+                                 "stop_date": "2023-05-06"}
+                      )
+
+    assert b'2023-05-06' in out.data
+    values = client.post("/download")
+    assert b'Brak danych w dniu 2023-05-06' in values.data
 
     client.post("/", data={"button": "True",
                            "start_date": '2023-01-01',
@@ -70,23 +76,13 @@ def test_root_date(app, client):
 
 
 @responses.activate
-def test_download(app, client):
+def test_download(app, client, read_):
     url = 'https://api.nbp.pl/api/exchangerates/tables/A/2023-01-02/2023-01-03/?format=json'
-    data = [
-        {"table": "A",
-         "no": "086/A/NBP/2023",
-         "effectiveDate": "2023-01-02",
-         "rates":
-             [{"currency": "bat (Tajlandia)", "code": "THB", "mid": 0.1233},
-              {"currency": "dolar amerykański", "code": "USD", "mid": 4.1612},
-              {"currency": "dolar australijski", "code": "AUD", "mid": 2.8000},
-              {"currency": "dolar Hongkongu", "code": "HKD", "mid": 0.5301},
-              ]}]
 
     responses.add(
         responses.GET,
         url=url,
-        json=data,
+        json=read_,
         status=200
     )
 
@@ -114,35 +110,24 @@ def test_download_ConnectionError(app, client):
                            "stop_date": '2023-01-03'})
 
     response = client.post('/download')
-    print(response.data)
     assert b'Blad polaczenia' in response.get_data()
 
 
 @responses.activate
-def test_graph(app, client):
+def test_graph(app, client, read_):
     url = 'https://api.nbp.pl/api/exchangerates/tables/A/2023-01-02/2023-01-03/?format=json'
-    data = [
-        {"table": "A",
-         "no": "086/A/NBP/2023",
-         "effectiveDate": "2023-01-02",
-         "rates":
-             [{"currency": "bat (Tajlandia)", "code": "THB", "mid": 0.1233},
-              {"currency": "dolar amerykański", "code": "USD", "mid": 4.1612},
-              {"currency": "dolar australijski", "code": "AUD", "mid": 2.8000},
-              {"currency": "dolar Hongkongu", "code": "HKD", "mid": 0.5301},
-              ]}]
 
     responses.add(
         responses.GET,
         url=url,
-        json=data,
+        json=read_,
         status=200
     )
     client.post("/", data={"button": "True",
                            "start_date": '2023-01-02',
                            "stop_date": '2023-01-03'})
 
-    response = client.post('/download')
+    client.post('/download')
     out = client.post('/download', data={'selection': 'dolar amerykański',
                                          'button2': 'True'})
     assert b'image/svg+xml' in out.get_data()
@@ -169,23 +154,13 @@ def test_graph(app, client):
 
 
 @responses.activate
-def test_download_buttons(client):
+def test_download_buttons(client, read_):
     url = 'https://api.nbp.pl/api/exchangerates/tables/A/2023-01-02/2023-01-03/?format=json'
-    data = [
-        {"table": "A",
-         "no": "086/A/NBP/2023",
-         "effectiveDate": "2023-01-02",
-         "rates":
-             [{"currency": "bat (Tajlandia)", "code": "THB", "mid": 0.1233},
-              {"currency": "dolar amerykański", "code": "USD", "mid": 4.1612},
-              {"currency": "dolar australijski", "code": "AUD", "mid": 2.8000},
-              {"currency": "dolar Hongkongu", "code": "HKD", "mid": 0.5301},
-              ]}]
 
     responses.add(
         responses.GET,
         url=url,
-        json=data,
+        json=read_,
         status=200
     )
     client.post("/", data={"button": "True",
@@ -201,7 +176,6 @@ def test_download_buttons(client):
     assert b'<title>Pobranie danych</title>' in out.data
 
     out = client.post('/download', data={'selection': 'dolar australijski'})
-    print(out.data)
 
 
 def test_reset_units():
@@ -218,28 +192,12 @@ def test_get_currency_data(read_):
 
 
 def test_draw_graph():
-    units = [nbp.DEFAULT_TEXT]*3
-    values = [11,12,11,12]
+    units = [nbp.DEFAULT_TEXT] * 3
+    values = [11, 12, 11, 12]
     date = ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04']
-    out = nbp.draw_graph(values,date,units)
+    out = nbp.draw_graph(values, date, units)
     assert isinstance(out, str)
     assert 'image/svg+xml' in out
 
-@responses.activate
-def test_explore_data(client, read_, mocker):
-    value_0 = 'selestion'
-    value_1 = 'selestion1'
-    value_2 = 'selestion2'
-    request_mock = mocker.patch.object(flask, "request")
-    request_mock.headers.get.return_value = value_0
 
-    client.post("/", data={"button": "True",
-                           "start_date": '2023-01-02',
-                           "stop_date": '2023-01-03'})
 
-    client.post('/download', data={'selection': 'dolar australijski'})
-
-    units = [nbp.DEFAULT_TEXT]*3
-    all_values = [None, None, None]
-    data_json = read_
-    all_values, units = nbp.explore_data(units, data_json, all_values)

@@ -19,3 +19,6 @@ Thumbs.db
 flask_session/
 __pycache__/
 .pytest_cache/
+
+# Files
+file.json
