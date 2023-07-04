@@ -1,4 +1,0 @@
-pygal
-numpy
-flask
-markupsafe
